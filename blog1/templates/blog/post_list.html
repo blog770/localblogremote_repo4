@@ -1,0 +1,20 @@
+{%extends 'blog/base.html'%}
+{%block title_block%}home page{%endblock%}
+  {%block content%}
+  <h1>bharath blog man</h1>
+
+  {%for post in post_list%}
+
+       <a href="{{post.get_absolute_url}}"><h2 style='color:white'>{{post.title}}</h2></a>
+      <p id='date'> published on {{post.publish}} by {{post.author|title}}</p>
+
+      <p>Tags:{{post.tags.all|join:","}}</p>
+      
+      {{post.body|truncatewords:30|linebreaks}}
+
+
+
+  {%endfor%}
+  {%include 'blog/pagination.html' with page=post_list%}
+
+  {%endblock%}

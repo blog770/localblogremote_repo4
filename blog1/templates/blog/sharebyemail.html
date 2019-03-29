@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+      body{
+        background:yellow;
+      }
+    </style>
+    <meta charset="utf-8">
+    <title>sharing</title>
+  </head>
+  <body>
+    {%if sent%}
+    <h1>Email sent sucessfully</h1>
+    <h2>this is the name "{{post.title}}"</h2><hr>
+    {%else%}
+    <h1>share this post:"{{post.title}}"</h1>
+    <form method="post">
+
+
+    {{form.as_p}}
+    {%csrf_token%}
+    <input type="submit" name="" value="send mail">
+    </form>
+    {%endif%}
+  </body>
+</html>
